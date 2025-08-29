@@ -126,6 +126,7 @@ function LoginPage() {
                             : 
                             <button onClick={(e)=>{handleCriarConta(e)}} className="active btn btn-block">Criar Conta</button>
                         }
+                        <br />
                         <button onClick={(e) => {handleGoogleLogin(e)}} className="active btn btn-block">Login com Google</button>
                         
                         {<div className='error'>{error}</div>}
