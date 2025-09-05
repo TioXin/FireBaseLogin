@@ -1,0 +1,84 @@
+/* Estilos gerais para o item de usuário */
+.user-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.85); /* Cor de fundo mais suave */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif; /* Consistente com o restante do projeto */
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover; /* Adicionando ajuste de imagem */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: 500; /* Peso de fonte mais suave para um visual mais harmonioso */
+    margin: 0;
+    color: #333; /* Cor do texto para combinar com o design */
+}
+
+.user-phone {
+    font-size: 14px;
+    color: #555;
+}
+
+.user-item button {
+    background-color: #1c40ab; /* Cor de fundo dos botões */
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-item button:hover {
+    background-color: #142e7b; /* Cor de hover para o botão */
+}
+
+.user-item button:active {
+    transform: scale(0.98);
+}
+
+.user-item button:focus {
+    outline: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .user-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .user-actions {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .user-photo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
