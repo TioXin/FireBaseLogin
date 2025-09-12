@@ -1,41 +1,41 @@
-  import './App.css'
-  import ContactItem from './components/ContactItem';
-  import { AuthProvider } from './contexts/AuthContext'; // Importe o AuthProvider
-  import { useAuth } from './contexts/AuthContext'; // Importe o hook useAuth
-  import ContactList from './views/ContactListPage';
-  import LoginPage from './views/LoginPage';
-  import MainPage from './views/MainPage';
-  import UserProfileForm from './views/UserProfilePage';
-  import { Routes, Route  } from 'react-router-dom';
+import './App.css'
+import { AuthProvider } from './contexts/AuthContext'; // Importe o AuthProvider
+import { useAuth } from './contexts/AuthContext'; // Importe o hook useAuth
+import AddContactPage from './views/AddContactPage';
+import ContactList from './views/ContactListPage';
+import LoginPage from './views/LoginPage';
+import MainPage from './views/MainPage';
+import UserProfileForm from './views/UserProfilePage';
+import { Routes, Route } from 'react-router-dom';
+import Chat from './views/ChatPage';
 
+function App() {
+  return (
+    <AuthProvider>
+      <AuthContent />
+    </AuthProvider>
+  );
+}
 
-  function App() {
-    return (
-      <AuthProvider>
-        <AuthContent />
-      </AuthProvider>
-    );
-  }
+function AuthContent() {
+  const { user } = useAuth(); // Agora o useAuth() deve retornar o valor correto
 
-  function AuthContent() {
-    const { user } = useAuth(); 
-    return (
-      <>
-        {user ?
-          <Routes>
-            <Route index element={<ContactList />} />
-            <Route path="/user-prof" element={<UserProfileForm />} />
-            <Route path="/add-cont" element={<ContactItem />} />
+  return (
+    <>
+      {user 
+      ? 
+      <Routes>
+          <Route index element={<ContactList />} />
+          <Route path="/user-prof" element={<UserProfileForm />} />
+          <Route path="/add-cont"  element={<AddContactPage />} />
+                  
+          <Route path="/chat/:id"  element={<Chat />} />     
 
-          </Routes>
-        :   
-        <LoginPage />}
-      </>
-    );
+      </Routes>      
+      
+      : <LoginPage />}
+    </>
+  );
+}
 
-  }
-
-
-  export default App;
-
-
+export default App;

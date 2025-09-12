@@ -357,3 +357,245 @@ table.is-style-stripes tr:nth-child(odd) {
   }
 }
   
+
+.add-contact-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.add-contact-container h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+  color: #1c40ab;
+}
+
+.user-profile-form label {
+  font-weight: 500;
+  margin-top: 10px;
+  display: block;
+  color: #444;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.user-profile-form input {
+  margin-bottom: 20px;
+  font-size: 15px;
+  height: 45px;
+  padding: 0 18px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.user-profile-form input:focus {
+  border-color: #1c40ab;
+  background-color: #fff;
+}
+
+.user-profile-form button {
+  background-color: #1c40ab;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 14px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.user-profile-form button:hover {
+  background-color: #142e7b;
+}
+
+.user-profile-error,
+.user-profile-success,
+.user-profile-warning {
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.user-profile-error {
+  background-color: #ffe3e3;
+  color: #d60000;
+}
+
+.user-profile-success {
+  background-color: #e0ffe3;
+  color: #007e33;
+}
+
+.user-profile-warning {
+  background-color: #fff5cc;
+  color: #a88500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== Chat Layout ====== */
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+  gap: 15px;
+}
+
+.contact-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: #1c40ab;
+}
+
+.contact-info p {
+  margin: 4px 0 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* ====== Chat Container ====== */
+.chat-container {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* ====== Messages ====== */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+
+.chat-message {
+  max-width: 70%;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.chat-message.sent {
+  align-self: flex-end;
+  background-color: #1c40ab;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.chat-message.received {
+  align-self: flex-start;
+  background-color: #e9e9e9;
+  color: #333;
+  border-bottom-left-radius: 0;
+}
+
+/* ====== Input ====== */
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+  padding: 16px;
+  gap: 10px;
+  background-color: #fff;
+}
+
+.chat-input input {
+  flex: 1;
+  height: 45px;
+  padding: 0 16px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  background-color: #f9f9f9;
+  transition: border 0.3s ease;
+}
+
+.chat-input input:focus {
+  border-color: #1c40ab;
+  outline: none;
+  background-color: #fff;
+}
+
+.chat-input button {
+  background-color: #1c40ab;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-input button:hover {
+  background-color: #142e7b;
+}
+
+/* ====== Responsivo ====== */
+@media (max-width: 600px) {
+  .chat-header,
+  .chat-container {
+    margin: 10px;
+    border-radius: 10px;
+  }
+
+  .chat-message {
+    max-width: 85%;
+  }
+
+  .contact-photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .chat-input {
+    padding: 12px;
+  }
+}

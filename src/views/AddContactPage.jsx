@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
 import { db, auth } from '../firebase/config';
 import { useNavigate } from 'react-router-dom';
-import './UserProfilePage.css';
+// import './UserProfilePage.css';
 import Header from '../components/Header';
 
 const AddContactPage = () => {
@@ -22,6 +22,7 @@ const AddContactPage = () => {
   const [userNotFound, setUserNotFound] = useState(false);
 
   // Função para buscar o usuário pelo e-mail
+
   const fetchUserByEmail = async (email) => {
     setError('');
     setUserNotFound(false);
@@ -69,6 +70,8 @@ const AddContactPage = () => {
     }
   };
 
+  
+
   // Envio do formulário
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -110,8 +113,8 @@ const AddContactPage = () => {
     <>
       <Header pageTitle={pageTitle} />
 
-      <div className="user-profile-container">
-        <h2 className="text-2xl font-bold mb-6">{pageTitle}</h2>
+      <div className="add-contact-container">
+      <h2 className="text-2xl font-bold mb-6">{pageTitle}</h2>
 
         {error && <div className="user-profile-error">{error}</div>}
         {success && <div className="user-profile-success">Contato adicionado com sucesso!</div>}
