@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 
 const AddContactPage = () => {
+  const [contactUserId, setContactUserId] = useState(null);
   const pageTitle = "Adicionar Contato";
   const navigate = useNavigate();
 
@@ -35,6 +36,7 @@ const AddContactPage = () => {
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
+        setContactUserId(querySnapshot.docs[0].id); // Armazena o ID do usuário encontrado
         const userData = querySnapshot.docs[0].data();
         setFormData(prev => ({
           ...prev,
@@ -94,6 +96,7 @@ const AddContactPage = () => {
       // Adiciona o contato na coleção "contacts"
       await addDoc(collection(db, 'contacts'), {
         ...formData,
+        contactUserId: contactUserId || null, 
         createdBy: auth.currentUser.uid, // Usuário autenticado que adicionou o contato
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()

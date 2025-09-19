@@ -8,6 +8,7 @@ import MainPage from './views/MainPage';
 import UserProfileForm from './views/UserProfilePage';
 import { Routes, Route } from 'react-router-dom';
 import Chat from './views/ChatPage';
+import EditPage from './views/EditPage';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function AuthContent() {
           <Route index element={<ContactList />} />
           <Route path="/user-prof" element={<UserProfileForm />} />
           <Route path="/add-cont"  element={<AddContactPage />} />
+          <Route path="/edit-cont/:contactId" element={<EditPage />} />
+
                   
           <Route path="/chat/:id"  element={<Chat />} />     
 

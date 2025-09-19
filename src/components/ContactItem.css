@@ -82,3 +82,7 @@
         margin-bottom: 10px;
     }
 }
+.user-item.invalid-contact {
+    background-color: #ffe6e6; /* tom leve de vermelho */
+    border: 1px solid #ff5c5c;
+  }
